@@ -14,6 +14,13 @@
         embedded
         arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     >
+        <a-assets>
+            <video
+                id="video"
+                src="./public/my.mp4"
+                >
+            </video>
+        </a-assets>
         <a-marker type="pattern" url="./public/pattern-qrcode.patt">
             <a-entity gltf-model="./public/untitled.glb" scale="3 3 3" position="0 0 0" rotation="0 -90 90">
                 <a-animation attribute="rotation"
@@ -24,9 +31,15 @@
                     easing="linear">
                 </a-animation>
             </a-entity>
-            <a-video id="myVideo" src="./public/my.mp4" position="3 1 0" rotation="-90 0 0" width="3" height="2" autoplay="true"></a-video>
+            <a-video src="#video" position="3 1 0" rotation="-90 0 0" width="3" height="2"></a-video>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
+    <script>
+        window.addEventListener("click", ()=>{
+            const video = document.getElementById("video")
+            video.play()
+        })
+    </script>
 </body>
 </html>
