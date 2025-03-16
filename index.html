@@ -15,7 +15,7 @@
         arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     >
         <a-marker type="pattern" url="./public/pattern-qrcode.patt" marker-controls="enabled: false;">
-            <a-entity gltf-model="./public/untitled.glb" scale="3 3 3" position="0 0 0" rotation="0 90 90">
+            <a-entity gltf-model="./public/untitled.glb" scale="3 3 3" position="0 0 0" rotation="0 -90 90">
                 <a-animation attribute="rotation"
                     dur="3000"
                     to="360 360 0"
@@ -23,7 +23,7 @@
                     easing="linear">
                 </a-animation>
             </a-entity>
-            <a-plane position="0 0.5 0" width="1" height="0.5" color="red" onclick="callPhone()">
+            <a-plane position="2 0.5 0" width="1" height="0.5" color="red" onclick="callPhone()">
                 <a-text value="📞 撥打電話" align="center" color="white" position="3 0 0"></a-text>
             </a-plane>
         </a-marker>
