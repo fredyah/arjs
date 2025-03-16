@@ -36,10 +36,19 @@
         <a-entity camera></a-entity>
     </a-scene>
     <script>
-        window.addEventListener("click", ()=>{
-            const video = document.getElementById("video")
-            video.play()
-        })
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("video");
+    
+            // 確保影片靜音，符合 autoplay 限制
+            video.muted = true;
+            video.autoplay = true;
+    
+            // 嘗試播放影片
+            video.play().catch(error => {
+                console.log("Autoplay blocked, retrying on user interaction.");
+                document.addEventListener("click", () => video.play(), { once: true });
+            });
+        });
     </script>
 </body>
 </html>
