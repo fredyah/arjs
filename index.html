@@ -45,8 +45,12 @@
     
             // 嘗試播放影片
             video.play().catch(error => {
-                console.log("Autoplay blocked, retrying on user interaction.");
-                document.addEventListener("click", () => video.play(), { once: true });
+                console.log("Autoplay blocked, allowing user interaction.");
+                
+                // 讓用戶點擊任何地方來播放
+                document.addEventListener("click", () => {
+                    video.play();
+                });
             });
         });
     </script>
