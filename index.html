@@ -24,9 +24,17 @@
                     easing="linear">
                 </a-animation>
             </a-entity>
-            <a-video src="./public/my.mp4" position="3 1 0" rotation="-90 0 0" width="3" height="2" autoplay muted></a-video>
+            <a-video id="myVideo" src="./public/my.mp4" position="3 1 0" rotation="-90 0 0" width="3" height="2" muted></a-video>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const videoEl = document.querySelector("#myVideo");
+            videoEl.play().catch(error => {
+                console.log("Autoplay failed. User interaction required:", error);
+            });
+        });
+    </script>
 </body>
 </html>
